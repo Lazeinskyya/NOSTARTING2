@@ -1,0 +1,47 @@
+program project1;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Classes
+  { you can add units after this };
+   type Vector=array[word] of char; 
+   var  A:vector; n:integer; 
+     t:char;
+   Procedure Create(var arr:vector); 
+   var i:integer;
+   begin
+      for i:=0 to n-1 do
+      begin
+        write('Vvedite  simvol: ');
+        readln(arr[i]);
+      end;
+   end;
+ Procedure Sort(arr:Vector);
+ var j,i:integer; key:char;
+ begin
+    for j:=1 to n-1 do   
+    begin
+    key:=A[j]; 
+    i:=j-1; 
+    while ((i>=0) and (A[i]<key)) do 
+    begin
+    A[i+1]:=A[i];  
+    Dec(i)   
+
+    end;
+   A[i+1]:=key;   
+   end
+ end;
+
+Procedure Print(Arr:Vector);
+var i:integer;
+begin
+   for i:=0 to n-1 do  
+   write (arr[i],' ');
+   writeln;
+   end;
+end.
